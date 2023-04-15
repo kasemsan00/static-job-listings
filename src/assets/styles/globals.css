@@ -1,33 +1,7 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-@font-face {
-  font-family: "LeagueSpartan";
-  src: url("../fonts/LeagueSpartan-VariableFont_wght.ttf");
-}
-body {
-  background-color: hsl(180, 52%, 96%);
-}
-* {
-  font-family: LeagueSpartan, serif;
-  font-size: 16px;
-}
 .filter-bar {
-  display: grid;
   grid-template-columns: auto 1fr;
   @apply w-full flex-row items-center gap-2 p-6 rounded-md bg-white shadow-2xl;
 }
@@ -55,3 +29,32 @@ body {
 .tag:hover {
   @apply bg-Desaturated-Dark-Cyan text-white;
 }
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+@font-face {
+  font-family: "LeagueSpartan";
+  src: url("../fonts/LeagueSpartan-VariableFont_wght.ttf");
+}
+body {
+  background-color: hsl(180, 52%, 96%);
+}
+* {
+  font-family: LeagueSpartan, serif;
+  font-size: 16px;
+}
+.header-background {
+  background-image: url("../images/bg-header-desktop.svg");
+}
+@tailwind utilities;
