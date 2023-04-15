@@ -26,6 +26,14 @@ body {
   font-family: LeagueSpartan, serif;
   font-size: 16px;
 }
+.filter-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  @apply w-full flex-row items-center gap-2 p-6 rounded-md bg-white shadow-2xl;
+}
+.filter-clear {
+  @apply justify-self-end cursor-pointer text-Desaturated-Dark-Cyan hover:underline font-semibold;
+}
 .card {
   display: grid;
   grid-template-columns: 150px 1fr 1fr;
@@ -41,5 +49,9 @@ body {
   @apply ml-2 text-xs font-semibold bg-Very-Dark-Grayish-Cyan text-white pt-[6px] pb-[4px] pl-[7px] pr-[7px] rounded-xl;
 }
 .tag {
-  @apply text-Desaturated-Dark-Cyan bg-Light-Grayish-Cyan-Background px-2 py-1 rounded-[5px];
+  @apply flex flex-row text-Desaturated-Dark-Cyan bg-Light-Grayish-Cyan-Background px-2 py-1 rounded-[5px] cursor-pointer;
+}
+.tag:active,
+.tag:hover {
+  @apply bg-Desaturated-Dark-Cyan text-white;
 }

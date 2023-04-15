@@ -2,9 +2,11 @@ import { IData } from "@/interface/data";
 import Image from "next/image";
 interface Props {
   item: IData;
+  tagSelect: string[];
+  handleTagSelect: (tag: string) => void;
 }
 
-export default function Card({ item }: Props) {
+export default function Card({ item, tagSelect, handleTagSelect }: Props) {
   return (
     <>
       <div className="justify-self-center">
@@ -26,11 +28,15 @@ export default function Card({ item }: Props) {
         </div>
       </div>
       <div className="justify-self-end flex flex-row gap-2">
-        <span className="tag">{item.role}</span>
-        <span className="tag">{item.level}</span>
+        <span className="tag" onClick={() => handleTagSelect(item.role)}>
+          {item.role}
+        </span>
+        <span className="tag" onClick={() => handleTagSelect(item.level)}>
+          {item.level}
+        </span>
         {item.languages.map((language: string, index: number) => {
           return (
-            <span className="tag" key={index}>
+            <span className="tag" key={index} onClick={() => handleTagSelect(language)}>
               {language}
             </span>
           );
