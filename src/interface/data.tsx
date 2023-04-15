@@ -13,6 +13,7 @@ export interface IData {
   postedAt: string;
   contract: string;
   location: string;
+  languages: string[];
 }
 
 // "id": 1,

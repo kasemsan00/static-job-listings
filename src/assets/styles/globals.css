@@ -26,3 +26,20 @@ body {
   font-family: LeagueSpartan, serif;
   font-size: 16px;
 }
+.card {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr;
+  @apply w-full flex-row items-center gap-2 p-6 rounded-md bg-white shadow-2xl;
+}
+.card-feature {
+  @apply border-l-Desaturated-Dark-Cyan border-l-4;
+}
+.new-label {
+  @apply ml-2 text-xs font-semibold bg-Desaturated-Dark-Cyan text-white pt-[6px] pb-[4px] pl-[7px] pr-[7px] rounded-xl;
+}
+.feature-label {
+  @apply ml-2 text-xs font-semibold bg-Very-Dark-Grayish-Cyan text-white pt-[6px] pb-[4px] pl-[7px] pr-[7px] rounded-xl;
+}
+.tag {
+  @apply text-Desaturated-Dark-Cyan bg-Light-Grayish-Cyan-Background px-2 py-1 rounded-[5px];
+}

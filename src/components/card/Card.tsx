@@ -1,34 +1,41 @@
 import { IData } from "@/interface/data";
 import Image from "next/image";
 interface Props {
-  key: number;
   item: IData;
 }
 
-export default function Card({ key, item }: Props) {
+export default function Card({ item }: Props) {
   return (
-    <div key={key} className="flex w-[700px] flex-row items-center gap-2 p-6 rounded-md border-l-black bg-slate-600">
-      <div>
-        <Image src={require(`@/assets/images/${item.logo}`)} width={100} height={100} alt={item.company} />
+    <>
+      <div className="justify-self-center">
+        <Image src={require(`@/assets/images/${item.logo}`)} width={100} height={100} priority={true} alt={item.company} />
       </div>
-      <div>
+      <div className="flex flex-col gap-1">
         <div>
-          <span>{item.company}</span>
-          <span>NEW!</span>
-          <span>FEATURED</span>
+          <span className="text-Desaturated-Dark-Cyan font-semibold">{item.company}</span>
+          {item.new ? <label className="new-label">NEW!</label> : null}
+          {item.featured ? <span className="feature-label">FEATURED</span> : null}
         </div>
-        <div>{item.position}</div>
-        <div>
+        <div className="font-semibold text-xl">{item.position}</div>
+        <div className="flex flex-row gap-4 text-Dark-Grayish-Cyan">
           <span>{item.postedAt}</span>
+          <span>•</span>
           <span>{item.contract}</span>
+          <span>•</span>
           <span>{item.location}</span>
         </div>
       </div>
-      <div>
-        <span>{item.role}</span>
-        <span>{item.level}</span>
-        <span>xxxx</span>
+      <div className="justify-self-end flex flex-row gap-2">
+        <span className="tag">{item.role}</span>
+        <span className="tag">{item.level}</span>
+        {item.languages.map((language: string, index: number) => {
+          return (
+            <span className="tag" key={index}>
+              {language}
+            </span>
+          );
+        })}
       </div>
-    </div>
+    </>
   );
 }
