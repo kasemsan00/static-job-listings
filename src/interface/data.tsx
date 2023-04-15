@@ -2,7 +2,7 @@ export interface IDataArray {
   data: IData[];
 }
 export interface IData {
-  id: string;
+  id: number;
   company: string;
   logo: string;
   new: boolean;
@@ -13,8 +13,6 @@ export interface IData {
   postedAt: string;
   contract: string;
   location: string;
-  languages: string[];
-  tools: string[];
 }
 
 // "id": 1,

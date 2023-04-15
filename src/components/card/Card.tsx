@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { IData } from "@/interface/data";
+import Image from "next/image";
 interface Props {
   key: number;
   item: IData;
@@ -7,28 +7,27 @@ interface Props {
 
 export default function Card({ key, item }: Props) {
   return (
-    <div className="flex flex-row items-center gap-2 bg-white p-6 rounded-md border-l-black">
+    <div key={key} className="flex w-[700px] flex-row items-center gap-2 p-6 rounded-md border-l-black bg-slate-600">
       <div>
-        Image
-        {/*<Image src={} alt={}*/}
+        <Image src={require(`@/assets/images/${item.logo}`)} width={100} height={100} alt={item.company} />
       </div>
       <div>
         <div>
-          <span>Photosnap</span>
+          <span>{item.company}</span>
           <span>NEW!</span>
           <span>FEATURED</span>
         </div>
-        <div>Senior Frontend Developer</div>
+        <div>{item.position}</div>
         <div>
-          <span>1d ago</span>
-          <span>Full Time</span>
-          <span>USA only</span>
+          <span>{item.postedAt}</span>
+          <span>{item.contract}</span>
+          <span>{item.location}</span>
         </div>
       </div>
       <div>
-        <span>Frontend</span>
-        <span>Senior</span>
-        <span>HTML</span>
+        <span>{item.role}</span>
+        <span>{item.level}</span>
+        <span>xxxx</span>
       </div>
     </div>
   );
