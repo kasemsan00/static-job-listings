@@ -1,12 +1,40 @@
 import dataJSON from "../data.json";
 import Card from "@/components/card/Card";
 import { IData } from "@/interface/data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Filter from "@/components/Filter";
 import Clear from "@/components/Clear";
 
 export default function Home() {
   const [tagSelect, setTagSelect] = useState<string[]>([]);
+  let filterData: Array<IData>;
+
+  // useEffect(() => {
+  //   console.log(tagSelect);
+  // }, [tagSelect]);
+  useEffect(() => {
+    // console.log(dataJSON[0].languages.concat(dataJSON[0].role).concat(dataJSON[0].level));
+    console.log(tagSelect);
+    console.log(
+      dataJSON.filter((state) =>
+        state.languages
+          .concat(state.role)
+          .concat(state.level)
+          .some((tag) => tagSelect.includes(tag))
+      )
+    );
+  }, [tagSelect]);
+
+  if (tagSelect.length === 0) {
+    filterData = dataJSON;
+  } else {
+    filterData = dataJSON.filter((state) =>
+      state.languages
+        .concat(state.role)
+        .concat(state.level)
+        .some((tag) => tagSelect.includes(tag))
+    );
+  }
 
   const handleTagSelect = (tag: string) => {
     if (tagSelect.includes(tag)) {
@@ -34,7 +62,7 @@ export default function Home() {
           <Filter tagSelect={tagSelect} handleTagRemove={handleTagRemove} />
           <Clear handleClear={handleClear} />
         </div>
-        {dataJSON.map((item: IData, index: number) => (
+        {filterData.map((item: IData, index: number) => (
           <div key={index} className={`card ${item.featured ? "card-feature" : undefined}`}>
             <Card item={item} key={index} handleTagSelect={handleTagSelect} />
           </div>
