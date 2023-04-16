@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <main className="min-h-screen ">
       <div className="header-background fixed z-[-1] top-0 bg-Desaturated-Dark-Cyan h-[157px] w-full"></div>
-      <div className="flex flex-col items-center justify-between mt-[120px] md:px-24 md:pt-24 pt-0 px-5 gap-14 md:gap-4 pb-24">
+      <div className="flex flex-col items-center justify-between mt-[120px] md:px-24 pt-0 px-5 gap-14 md:gap-4 pb-24">
         <div className={`${tagSelect.length > 0 ? "filter-bar grid" : "hidden"}`}>
           <Filter tagSelect={tagSelect} handleTagRemove={handleTagRemove} />
           <Clear handleClear={handleClear} />
