@@ -9,31 +9,15 @@ export default function Home() {
   const [tagSelect, setTagSelect] = useState<string[]>([]);
   let filterData: Array<IData>;
 
-  // useEffect(() => {
-  //   console.log(tagSelect);
-  // }, [tagSelect]);
   useEffect(() => {
-    // console.log(dataJSON[0].languages.concat(dataJSON[0].role).concat(dataJSON[0].level));
     console.log(tagSelect);
-    console.log(
-      dataJSON.filter((state) =>
-        state.languages
-          .concat(state.role)
-          .concat(state.level)
-          .some((tag) => tagSelect.includes(tag))
-      )
-    );
+    console.log(dataJSON.filter((state) => state.languages.concat(state.role).concat(state.level)));
   }, [tagSelect]);
 
   if (tagSelect.length === 0) {
     filterData = dataJSON;
   } else {
-    filterData = dataJSON.filter((state) =>
-      state.languages
-        .concat(state.role)
-        .concat(state.level)
-        .some((tag) => tagSelect.includes(tag))
-    );
+    filterData = dataJSON.filter((state) => state.languages.some((tag) => tagSelect.includes(tag)));
   }
 
   const handleTagSelect = (tag: string) => {
