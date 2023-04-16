@@ -4,7 +4,7 @@ interface Props {
 
 export default function Clear({ handleClear }: Props) {
   return (
-    <span className="filter-clear justify-self-end" onClick={handleClear}>
+    <span className="filter-clear justify-self-end text-Dark-Grayish-Cyan" onClick={handleClear}>
       Clear
     </span>
   );

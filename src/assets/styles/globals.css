@@ -1,35 +1,34 @@
 @tailwind base;
 @tailwind components;
 
-.filter-bar {
-  grid-template-columns: auto 1fr;
-  @apply w-full flex-row items-center gap-2 p-6 rounded-md bg-white shadow-2xl;
+@layer components {
+  .filter-bar {
+    @apply grid grid-cols-[auto,1fr] w-full items-center gap-2 p-6 rounded-md bg-white drop-shadow-xl;
+  }
+  .filter-clear {
+    @apply justify-self-end cursor-pointer text-Desaturated-Dark-Cyan hover:underline font-semibold;
+  }
+  .card {
+    @apply grid w-full items-center gap-2 p-6 rounded-md bg-white drop-shadow-card
+    md:grid-cols-[150px,auto,auto] grid-cols-1;
+  }
+  .card-feature {
+    @apply border-l-Desaturated-Dark-Cyan border-l-4;
+  }
+  .new-label {
+    @apply ml-2 text-xs font-semibold bg-Desaturated-Dark-Cyan text-white pt-[6px] pb-[4px] pl-[7px] pr-[7px] rounded-xl;
+  }
+  .feature-label {
+    @apply ml-2 text-xs font-semibold bg-Very-Dark-Grayish-Cyan text-white pt-[6px] pb-[4px] pl-[7px] pr-[7px] rounded-xl;
+  }
+  .tag {
+    @apply flex flex-row text-Desaturated-Dark-Cyan bg-Light-Grayish-Cyan-Background px-2 py-1 rounded-[5px] cursor-pointer;
+  }
+  .tag:active,
+  .tag:hover {
+    @apply bg-Desaturated-Dark-Cyan text-white;
+  }
 }
-.filter-clear {
-  @apply justify-self-end cursor-pointer text-Desaturated-Dark-Cyan hover:underline font-semibold;
-}
-.card {
-  display: grid;
-  grid-template-columns: 150px 1fr 1fr;
-  @apply w-full flex-row items-center gap-2 p-6 rounded-md bg-white shadow-2xl;
-}
-.card-feature {
-  @apply border-l-Desaturated-Dark-Cyan border-l-4;
-}
-.new-label {
-  @apply ml-2 text-xs font-semibold bg-Desaturated-Dark-Cyan text-white pt-[6px] pb-[4px] pl-[7px] pr-[7px] rounded-xl;
-}
-.feature-label {
-  @apply ml-2 text-xs font-semibold bg-Very-Dark-Grayish-Cyan text-white pt-[6px] pb-[4px] pl-[7px] pr-[7px] rounded-xl;
-}
-.tag {
-  @apply flex flex-row text-Desaturated-Dark-Cyan bg-Light-Grayish-Cyan-Background px-2 py-1 rounded-[5px] cursor-pointer;
-}
-.tag:active,
-.tag:hover {
-  @apply bg-Desaturated-Dark-Cyan text-white;
-}
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
