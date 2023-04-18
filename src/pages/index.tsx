@@ -1,18 +1,13 @@
 import dataJSON from "../data.json";
 import Card from "@/components/card/Card";
 import { IData } from "@/interface/data";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Filter from "@/components/Filter";
 import Clear from "@/components/Clear";
 
 export default function Home() {
   const [tagSelect, setTagSelect] = useState<string[]>([]);
   let filterData: Array<IData>;
-
-  useEffect(() => {
-    console.log(tagSelect);
-    console.log(dataJSON.filter((state) => state.languages.concat(state.role).concat(state.level)));
-  }, [tagSelect]);
 
   if (tagSelect.length === 0) {
     filterData = dataJSON;

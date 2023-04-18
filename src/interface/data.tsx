@@ -1,6 +1,3 @@
-export interface IDataArray {
-  data: IData[];
-}
 export interface IData {
   id: number;
   company: string;
